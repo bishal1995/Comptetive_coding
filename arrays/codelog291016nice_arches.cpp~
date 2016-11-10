@@ -1,0 +1,34 @@
+#include<iostream>
+#include<vector>
+#include<string>
+#include<stack>
+using namespace std;
+int main(){
+  int M,bubbly;
+  vector<string> words;
+  string buff;
+  cin>>M;
+  for(int i=0;i<M;++i){
+    cin>>buff;
+    words.push_back(buff);
+  }
+  for(int i=0;i<M;++i){\
+    int size = words[i].size(),j=0;
+    stack<char> test;
+    test.push('@');
+    while( (test.size()!=5) && j<size ){
+      for(j=0;j<size;++j){
+	if( test.top() == words[i][j] )
+	  test.pop();
+	else
+	  test.push(words[i][j]);
+      }
+    }
+    if(test.size()>=5)
+      continue;
+    else
+      ++bubbly;
+  }
+  cout<<bubbly;
+  return 0;
+}

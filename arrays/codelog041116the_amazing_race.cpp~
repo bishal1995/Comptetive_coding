@@ -1,0 +1,45 @@
+#include<iostream>
+#include<vector>
+using namespace std;
+int main(){
+  ios_base::sync_with_stdio(false);
+  cin.tie(NULL);
+  int N;
+  cin>>N;
+  vector<int> winner;
+  for(int i=0;i<N;++i){
+    int size,buff,poi=0,XP=0;
+    cin>>size;
+    vector<int> input;
+    for(int j=0;j<size;++j){
+      cin>>buff;
+      input.push_back(buff);
+    }
+    for(int k=0;k<size;++k){
+      int X=0,left_ptr=k-1,right_ptr=k+1;
+      for(;left_ptr>-1;--left_ptr)
+         if(input[left_ptr]>=input[k])
+           break;
+
+      cout<<left_ptr<<endl;  
+
+      for(;right_ptr<size;++right_ptr)
+        if(input[right_ptr]>=input[k])
+          break;
+
+      cout<<right_ptr<<endl;
+
+      X=X+(k-(left_ptr));
+      X=X+((right_ptr)-k);
+      int sight_val = X*(k+1);
+      if(sight_val>XP){
+         XP=sight_val;
+         poi=k+1;
+      }      
+    }
+    winner.push_back(poi);   
+  }
+  for(int l=0;l<N;++l)
+    cout<<winner[l]<<endl;
+  return 0;
+}

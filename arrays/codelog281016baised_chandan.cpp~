@@ -1,0 +1,24 @@
+#include<iostream>
+#include<vector>
+#include<algorithm>
+using namespace std;
+int main(){
+  vector<int> ratings;
+  int N,buff,total_rating=0;
+  cin>>N;
+  for(int i=0;i<N;++i){
+    cin>>buff;
+    ratings.push_back(buff);    
+  }
+  int poi = ratings.size()-1;
+  while(poi>-1){
+    if(ratings[poi] == 0)
+      poi = poi-2;
+    else{
+      total_rating = total_rating + ratings[poi];
+      --poi;
+    }
+  }
+  cout<<total_rating;  
+  return 0;
+}

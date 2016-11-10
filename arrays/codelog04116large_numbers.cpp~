@@ -1,0 +1,50 @@
+  #include<iostream>
+  #include<vector>
+  #include<set>
+  using namespace std;
+  int main(){
+    int N,NQ,buff,Qtype,size,count;
+    long long int freq,buff;
+    cin>>N;
+    vector<long long int> numbers;
+    multiset<long long int> args;
+    for(int i=0;i<N;++i){
+      cin>>buff;
+      numbers.push_back(buff);
+      args.insert(buff);
+    }
+    size = numbers.size();
+    cin>>NQ;
+    for(int j=0;j<NQ;++j){
+      cin>>Qtype;
+      if(Qtype==0){
+        bool found=false;
+        cin>>freq;
+        for(int k=0;k<size;++k){
+    count = args.count(numbers[k]);
+    if(count>=freq){
+      cout<<numbers[k]<<endl;
+      found=true;
+      break;      
+    }
+        }
+        if(found==false)
+    cout<<0<<endl;
+      }
+      else{
+        bool found=false;
+        cin>>freq;
+        for(int m=0;m<size;++m){
+    count = args.count(numbers[m]);
+    if(count==freq){
+      cout<<numbers[m]<<endl;
+      found=true;
+      break;
+    }
+        }
+        if(found==false)
+    cout<<0<<endl;
+      }
+    }
+    return 0;
+  }
