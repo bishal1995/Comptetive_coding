@@ -4,18 +4,55 @@
 using namespace std;
 // Processing each test case
 void check_month( int ld ){
-  int loan_duration = ld,depreciation_record_count = 0;
-  float down_payment = 0.0,loan_amount = 0.0;
+  int loan_duration = ld,depreciation_record_count = 0,last_month,month;
+  float down_payment = 0.0,loan_amount = 0.0,last_month_rate;
   vector<pair<int,float>> depreciation_record; 
   cin>>down_payment>>loan_amount>>depreciation_record_count;
   for( int i = 0 ; i < depreciation_record_count ; ++i ){
     pair<int,float> buff;
     cin>>buff.first>>buff.second;
     depreciation_record.push_back( buff );
+  }
 
+
+  last_month = 0;
+  last_month_rate = depreciation_record[0].second;
+  last_month_count = ;
+
+  
+  int car_value = ( down_payment + loan_amount ) - ( ( loan_amount + down_payment ) * depreciation_record[0].second );
+  while( car_value < loan_amount ){
+    ++last_month;
+    ++month;
+    if( last_month_count   ){
+    
 
     
+      if( last_month < depreciation_record[last_month_count+1].first ){
+	car_value = car_value - (care_value*depreciation_record[last_month_count].second);
+	loan_amount = loan_amount - down_payment; 
+      }
+      else{
+
+
+      }
+    
+
+    }
+
+
   }
+
+  
+
+  
+
+
+  
+
+  
+
+  
 
 }
 
