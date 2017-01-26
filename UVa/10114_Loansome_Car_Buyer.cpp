@@ -22,24 +22,9 @@ void check_month( int ld ){
   
   int car_value = ( down_payment + loan_amount ) - ( ( loan_amount + down_payment ) * depreciation_record[0].second );
   while( car_value < loan_amount ){
-    ++last_month;
-    ++month;
-    if( last_month_count   ){
     
 
     
-      if( last_month < depreciation_record[last_month_count+1].first ){
-	car_value = car_value - (care_value*depreciation_record[last_month_count].second);
-	loan_amount = loan_amount - down_payment; 
-      }
-      else{
-
-
-      }
-    
-
-    }
-
 
   }
 
