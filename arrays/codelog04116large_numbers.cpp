@@ -32,10 +32,10 @@ int main(){
   
   cin>>NQ;
   cout<<NQ;
-  /*
+
   for(int j=0;j<NQ;++j){
     cout<<j<<"\n";
-    /*
+
     cin>>Qtype;
     if(Qtype==0){
       bool found=false;
@@ -66,6 +66,6 @@ int main(){
 	cout<<0<<"\n";
     }
   
-    }*/
+    }
   return 0;
 }
