@@ -36,9 +36,6 @@ vector<int> magicalNumber(){
   num = getNumber();
   size = num.size();
   for( int i = 0 ; i < size ; ++i ){
-
-    cout<<"\nIt came here";
-    
     if( num[i] % 2 == 0 )
       continue;
     else{
@@ -60,10 +57,6 @@ int main(){
   chartoint = getNumber();
   magicnum = magicalNumber();
 
-  size = chartoint.size();
-  for( int j=0 ; j < size ; ++j ){
-    cout<< chartoint[j] <<" - "<< char(chartoint[j]) <<"\n";
-  }
   size = magicnum.size();
   cout<<"\n";
   for( int i = 0 ; i < size ; ++i )
