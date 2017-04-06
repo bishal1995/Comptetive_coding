@@ -47,23 +47,48 @@ vector<int> magicalNumber(){
   return magicalnum ;  
 }
 // Getting the closest letter
-
+vector<int> nearestPrime( vector<int> prime, vector<int> number ){
+  int psize , nsize , j = 0 , small = 0 , smallVal = 0 ;
+  vector<int> nearPrime;
+  psize = prime.size();
+  nsize = number.size();
+  for( int i = 0 ; i < nsize ; ++i ){
+    j = 0 ;
+    small = j ;
+    smallVal = 100 ;
+    while( j < psize ){
+      int buff;
+      buff = abs( prime[j] - number[i] );
+      if( smallVal >= buff ){
+	small = j;
+	smallVal = buff;
+      }
+      else
+	break;
+      ++j;
+    }
+    nearPrime.push_back( prime[small] );
+  }
+  return nearPrime;
+}
 
 
 
 int main(){
   int size;
-  vector<int> chartoint,magicnum;
+  vector<int> chartoint,magicnum,nearPrime;
   chartoint = getNumber();
   magicnum = magicalNumber();
-
+  nearPrime = nearestPrime( magicnum , chartoint );
   size = magicnum.size();
   cout<<"\n";
   for( int i = 0 ; i < size ; ++i )
     cout<<magicnum[i]<<"\n";
-
-
-  
+  size = nearPrime.size();
+  cout<<"-----------\n";
+  for( int j = 0 ; j < size ; ++j  )
+    cout<<chartoint[j]<<"  -  "<<nearPrime[j]<<"\n";
+   
   
   return 0;
 }
