@@ -67,28 +67,43 @@ vector<int> nearestPrime( vector<int> prime, vector<int> number ){
 	break;
       ++j;
     }
-    nearPrime.push_back( prime[small] );
+    if( small > 0 ){
+      if( smallVal == abs(prime[small-1] - number[i]) )
+	nearPrime.push_back( prime[small-1] );
+      else
+	nearPrime.push_back( prime[small] );
+    }      
+    else
+      nearPrime.push_back( prime[small] );
   }
   return nearPrime;
 }
-
-
-
 int main(){
-  int size;
+  int size,T,S;
+  char ch;
   vector<int> chartoint,magicnum,nearPrime;
   chartoint = getNumber();
   magicnum = magicalNumber();
   nearPrime = nearestPrime( magicnum , chartoint );
-  size = magicnum.size();
-  cout<<"\n";
-  for( int i = 0 ; i < size ; ++i )
-    cout<<magicnum[i]<<"\n";
-  size = nearPrime.size();
-  cout<<"-----------\n";
-  for( int j = 0 ; j < size ; ++j  )
-    cout<<chartoint[j]<<"  -  "<<nearPrime[j]<<"\n";
-   
-  
+  cin>>T;
+  for( int i = 0 ; i < T ; ++i  ){
+    cin>>S;
+    for( int i = 0 ; i < S ; ++i ){
+      cin>>ch;
+      if( int(ch) > 90 )
+	cout<<char(nearPrime[ int(ch) - 71 ]);
+      else
+	cout<<char(nearPrime[ int(ch) - 65 ]);
+    }
+    cout<<"\n";
+
+  } 
   return 0;
 }
+
+
+
+
+
+
+
