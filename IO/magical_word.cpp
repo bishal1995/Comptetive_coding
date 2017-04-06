@@ -3,18 +3,6 @@
 #include<math.h>
 using namespace std;
 
-// Function for getting numbers 
-vector<int> getNumber(){
-  vector<int> vctr;
-  char ch = 'A';
-  int size=0;
-  for(int i = 0 ; i < 58 ; ++i ){
-    if(!( int(ch)>=91 && int(ch)<=96 ))
-      vctr.push_back( int(ch) );
-    ch++;
-  }
-  return vctr;
-}
 // Prime checking function
 bool isPrime(int number){
   bool prime = true;
@@ -33,7 +21,8 @@ vector<int> magicalNumber(){
   bool prime = true;
   int size;
   vector<int> num, magicalnum;
-  num = getNumber();
+  for( int i = 65 ; i < 127 ; ++i )
+    num.push_back(i);  
   size = num.size();
   for( int i = 0 ; i < size ; ++i ){
     if( num[i] % 2 == 0 )
@@ -82,21 +71,22 @@ int main(){
   int size,T,S;
   char ch;
   vector<int> chartoint,magicnum,nearPrime;
-  chartoint = getNumber();
+  for( int i = 65 ; i < 127 ; ++i )
+    chartoint.push_back(i);
   magicnum = magicalNumber();
   nearPrime = nearestPrime( magicnum , chartoint );
+  size = chartoint.size();
   cin>>T;
   for( int i = 0 ; i < T ; ++i  ){
     cin>>S;
     for( int i = 0 ; i < S ; ++i ){
       cin>>ch;
-      if( int(ch) > 90 )
-	cout<<char(nearPrime[ int(ch) - 71 ]);
-      else
+      if( int(ch) > 64 )
 	cout<<char(nearPrime[ int(ch) - 65 ]);
+      else
+	cout<<"C";
     }
     cout<<"\n";
-
   } 
   return 0;
 }
